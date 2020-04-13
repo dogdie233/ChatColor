@@ -1,7 +1,8 @@
 # ChatColor —— 基于MCDR的彩色消息API
-让你发送给玩家的字符串支持彩色
+让你发送给玩家的字符串支持彩色,并且用起来很简单
 > 参考spigot的ChatColor写的
 
+## Usage - 食用方法
 | 假装是常量的方法 | 功能 |
 | ---- | ---- |
 |BLACK()|使后面的字符串颜色变为黑色|
@@ -31,3 +32,13 @@
 |translateAlternateColorCodes(altColorChar, textToTranslate)|把 `textToTranslate` 所有 `altColorChar` 转换成颜色代码标识|
 
 **ChatColor在 `server.talk()` 和 `server.say()` 中不生效,因为Fallen加了转义**
+
+## Examples - 示例
+#### 玩家进入发送欢迎
+```
+import ChatColor
+
+on_player_joined(server, player):
+  server.execute("tellraw @a {\"text\":\"" + ChatColor.GREEN() + "欢迎 " ChatColor.YELLOW() + player + ChatColor.GREEN() + " 加入游戏" + "\"}")
+  server.execute("tellraw " + player + " {\"text":\"" + ChatColor.translateAlternateColorCodes("&", "&a欢迎回来, &e" + player) + "\"}")
+```
