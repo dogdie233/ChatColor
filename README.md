@@ -39,6 +39,6 @@
 import ChatColor
 
 on_player_joined(server, player):
-  server.execute("tellraw @a {\"text\":\"" + ChatColor.GREEN() + "欢迎 " ChatColor.YELLOW() + player + ChatColor.GREEN() + " 加入游戏" + "\"}")
-  server.execute("tellraw " + player + " {\"text":\"" + ChatColor.translateAlternateColorCodes("&", "&a欢迎回来, &e" + player) + "\"}")
+  server.execute("tellraw @a {\"text\":\"" + ChatColor.GREEN() + "欢迎 " ChatColor.YELLOW() + ChatColor.BOLD() + player + ChatColor.RESET() + ChatColor.GREEN() + " 加入游戏" + "\"}")
+  server.execute("tellraw " + player + " {\"text":\"" + ChatColor.translateAlternateColorCodes("&", "&a欢迎回来, &e&l" + player) + "\"}")
 ```
